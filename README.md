@@ -2,7 +2,7 @@
 
 A 60-second playable quiz for Instagram and Facebook, built for the Steer Club Hackathon (Problem Statement 1: "The ad people want to tap").
 
-**Play it:** https://ankith-m1006.github.io/steer-willpower-or-biology/
+**Play it:** https://steer-willpower-or-biology-1037019152152.asia-south1.run.app
 **What Steer's team would receive with the call request:** add `?team=1` to the link.
 
 ## Trigger, value, next step
