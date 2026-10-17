@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Willpower or biology? · steer</title>
+<meta name="description" content="Five common doubts about GLP-1 medicines, cleared in 60 seconds, with a source for every answer. By steer, India's doctor-led metabolic health club.">
+<meta name="theme-color" content="#F5EBDF">
+<meta property="og:title" content="Willpower or biology?">
+<meta property="og:description" content="Five doubts about GLP-1 medicines, cleared in 60 seconds. Every answer has a source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EBDF; --rust: #C04E2A; --maroon: #661414; --ink: #351D1D;
+    --clay: #B58777; --blush: #E6CBBD; --paper: #F8F2EB;
+    --serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --hand: Caveat, "Segoe Print", cursive;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; height: 100%; background: var(--cream); color: var(--ink); }
+  body { font: 16px/1.5 var(--sans); -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
+  .app { position: relative; max-width: 440px; height: 100dvh; margin: 0 auto; overflow: hidden; }
+  .screen { position: absolute; inset: 0; padding: max(22px, env(safe-area-inset-top)) 24px max(22px, env(safe-area-inset-bottom)); display: flex; flex-direction: column; opacity: 0; transform: translateY(14px); pointer-events: none; transition: opacity .35s ease, transform .35s ease; overflow-y: auto; }
+  .screen.on { opacity: 1; transform: none; pointer-events: auto; }
+  .screen.dark { background: var(--maroon); color: var(--cream); }
+  .top { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--clay); min-height: 22px; }
+  .mark { font-family: var(--serif); font-size: 22px; color: var(--rust); letter-spacing: -.01em; }
+  .dark .mark { color: var(--blush); }
+  h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -.015em; margin: 0; color: var(--rust); }
+  h1 { font-size: clamp(40px, 11.5vw, 52px); line-height: 1.02; }
+  h2 { font-size: clamp(30px, 8.6vw, 38px); line-height: 1.06; }
+  h1 em, h2 em { font-style: italic; }
+  .dark h1, .dark h2 { color: var(--cream); }
+  .lead { font-size: 17px; color: var(--ink); margin: 14px 0 0; }
+  .dark .lead { color: var(--blush); }
+  .small { font-size: 13px; color: var(--clay); }
+  .grow { flex: 1; }
+  .center { display: flex; flex-direction: column; justify-content: center; }
+  .note { font-family: var(--hand); font-size: 22px; color: var(--rust); transform: rotate(-2deg); display: inline-block; }
+  .dark .note { color: var(--blush); }
+
+  .btn { appearance: none; border: 0; border-radius: 999px; font: 600 16px var(--sans); padding: 16px 22px; cursor: pointer; transition: transform .12s ease, background .2s; width: 100%; }
+  .btn:active { transform: scale(.97); }
+  .btn.primary { background: var(--rust); color: var(--paper); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--blush); }
+  .dark .btn.primary { background: var(--cream); color: var(--maroon); }
+  .dark .btn.ghost { color: var(--cream); border-color: rgba(245,235,223,.35); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stack { display: grid; gap: 10px; }
+
+  /* the hook */
+  .guess { font-family: var(--serif); font-size: 30px; padding: 26px 10px; border-radius: 22px; background: var(--paper); border: 1.5px solid var(--blush); color: var(--ink); cursor: pointer; transition: transform .12s, background .2s, border-color .2s; }
+  .guess i { display: block; font-family: var(--sans); font-style: normal; font-size: 13px; color: var(--clay); margin-top: 4px; }
+  .guess:active { transform: scale(.96); }
+  .clock { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--rust); position: relative; margin-bottom: 22px; }
+  .clock::before, .clock::after { content: ""; position: absolute; left: 50%; bottom: 50%; width: 2px; background: var(--rust); transform-origin: bottom; border-radius: 2px; }
+  .clock::before { height: 20px; transform: translateX(-50%) rotate(120deg); }
+  .clock::after { height: 26px; transform: translateX(-50%) rotate(0deg); animation: tick 4s steps(60) infinite; }
+  @keyframes tick { to { transform: translateX(-50%) rotate(360deg); } }
+
+  /* sources */
+  .src { display: inline-flex; gap: 6px; align-items: center; margin-top: 14px; font-size: 12.5px; color: var(--clay); text-decoration: none; border-bottom: 1px dotted var(--clay); }
+  .dark .src { color: var(--blush); border-color: var(--blush); }
+
+  /* doubts */
+  .chip { text-align: left; font: 500 16px var(--sans); padding: 15px 16px; border-radius: 16px; border: 1.5px solid var(--blush); background: var(--paper); color: var(--ink); cursor: pointer; display: flex; gap: 12px; align-items: center; transition: border-color .15s, background .15s; }
+  .chip .box { width: 22px; height: 22px; border-radius: 7px; border: 1.5px solid var(--clay); flex: none; display: grid; place-items: center; color: var(--paper); font-size: 14px; }
+  .chip[aria-pressed="true"] { border-color: var(--rust); background: #fbf3ec; }
+  .chip[aria-pressed="true"] .box { background: var(--rust); border-color: var(--rust); }
+
+  /* myth or fact */
+  .dots { display: flex; gap: 6px; }
+  .dots span { width: 22px; height: 4px; border-radius: 4px; background: var(--blush); }
+  .dots span.done { background: var(--rust); }
+  .card { background: var(--paper); border: 1.5px solid var(--blush); border-radius: 26px; padding: 26px 22px; margin-top: 18px; }
+  .card .q { font-family: var(--serif); font-size: 30px; line-height: 1.1; color: var(--ink); }
+  .card .q em { color: var(--rust); }
+  .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--clay); margin-bottom: 10px; }
+  .verdict { font-family: var(--serif); font-size: 34px; color: var(--rust); margin: 2px 0 6px; }
+  .verdict.ok::after { content: " · you got it"; font-family: var(--sans); font-size: 13px; color: var(--clay); }
+  .ans { font-size: 16px; }
+  .india { margin-top: 12px; padding: 12px 14px; border-radius: 14px; background: var(--cream); font-size: 14.5px; }
+  .pop { animation: pop .4s cubic-bezier(.2,1.4,.4,1) both; }
+  @keyframes pop { from { transform: scale(.94); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  /* is it for me */
+  label.f { display: grid; gap: 6px; font-size: 14px; color: var(--clay); }
+  .f input, .f select { font: 500 18px var(--sans); padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--blush); background: var(--paper); color: var(--ink); width: 100%; }
+  .meter { position: relative; height: 12px; border-radius: 12px; margin: 22px 0 8px; background: linear-gradient(90deg, var(--blush) 0 36%, #e2b9a5 36% 50%, var(--clay) 50% 66%, var(--rust) 66%); }
+  .meter i { position: absolute; top: -7px; width: 4px; height: 26px; border-radius: 3px; background: var(--ink); transition: left .6s cubic-bezier(.2,1,.3,1); }
+  .scale { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--clay); }
+
+  /* wrapped */
+  .story { display: flex; gap: 6px; margin-bottom: 16px; }
+  .story span { flex: 1; height: 3px; border-radius: 3px; background: rgba(245,235,223,.3); overflow: hidden; }
+  .story span b { display: block; height: 100%; width: 0; background: var(--cream); }
+  .story span.done b { width: 100%; }
+  .story span.now b { animation: fill 5.5s linear forwards; }
+  @keyframes fill { to { width: 100%; } }
+  .big { font-family: var(--serif); font-size: 96px; line-height: .9; color: var(--cream); }
+  .tap { position: absolute; inset: 80px 0 120px 0; }
+  .share-card { background: var(--cream); color: var(--ink); border-radius: 24px; padding: 22px; margin-top: 18px; }
+  .share-card h2, .dark .share-card h2 { font-size: 28px; color: var(--rust); }
+
+  .lead-json { font: 12px/1.5 ui-monospace, monospace; background: var(--paper); border: 1px dashed var(--clay); border-radius: 12px; padding: 12px; white-space: pre-wrap; color: var(--ink); margin-top: 12px; }
+  .fine { font-size: 11.5px; color: var(--clay); margin-top: 12px; }
+  .dark .fine { color: var(--blush); opacity: .8; }
+  [hidden] { display: none !important; }
+
+  /* On a laptop the game sits in a phone-sized frame (it is built for a phone feed). */
+  @media (min-width: 640px) and (min-height: 600px) {
+    body { display: grid; place-items: center; background: #eadccd; }
+    .app { height: min(860px, calc(100dvh - 48px)); width: 420px; border-radius: 34px; background: var(--cream); box-shadow: 0 30px 80px -30px rgba(53,29,29,.45), 0 0 0 10px #351d1d14; }
+    .screen { border-radius: 34px; }
+  }
+  .screen { scrollbar-width: none; }
+  .screen::-webkit-scrollbar { display: none; }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <!-- 0 · hook (first 3 seconds) -->
+  <section class="screen on" id="s-hook">
+    <div class="top"><span class="mark">steer</span><span>tap to answer</span></div>
+    <div class="grow center">
+      <div class="clock" aria-hidden="true"></div>
+      <h1>Why does your hunger <em>come back</em> at 4pm?</h1>
+      <p class="lead">One tap. Then 60 seconds that might change how you see your weight.</p>
+    </div>
+    <div class="row">
+      <button class="guess" data-guess="willpower">Willpower<i>I just need more discipline</i></button>
+      <button class="guess" data-guess="biology">Biology<i>my body is pushing back</i></button>
+    </div>
+  </section>
+
+  <!-- 1 · reveal -->
+  <section class="screen dark" id="s-reveal">
+    <div class="top"><span class="mark">steer</span><span id="reveal-tag"></span></div>
+    <div class="grow center">
+      <span class="note" id="reveal-note"></span>
+      <h1 style="margin-top:8px">It's <em>biology.</em></h1>
+      <p class="lead">After a diet, your body turns up the hunger hormone ghrelin and turns down the hormones that make you feel full. In one study they were still changed a year later. That 4pm chai-and-biscuit pull is real.</p>
+      <a class="src" target="_blank" rel="noopener" href="https://doi.org/10.1056/NEJMoa1105816">Source: Sumithran et al., NEJM 2011</a>
+    </div>
+    <p class="lead" style="margin-bottom:16px">Medicines that work on this biology, called GLP-1 medicines, are everywhere now. So are the doubts.</p>
+    <button class="btn primary" data-go="doubts">Clear my doubts · 45 sec</button>
+  </section>
+
+  <!-- 2 · which doubts -->
+  <section class="screen" id="s-doubts">
+    <div class="top"><span class="mark">steer</span><span>step 1 of 3</span></div>
+    <h2 style="margin-top:18px">What do <em>you</em> want to know?</h2>
+    <p class="small" style="margin:8px 0 16px">Pick any. We'll start with yours.</p>
+    <div class="stack" id="doubt-list"></div>
+    <div class="grow"></div>
+    <button class="btn primary" id="doubts-go" style="margin-top:16px">Start</button>
+  </section>
+
+  <!-- 3 · myth or fact -->
+  <section class="screen" id="s-quiz">
+    <div class="top"><span class="mark">steer</span><div class="dots" id="dots"></div></div>
+    <div class="card" id="card"></div>
+    <div class="grow"></div>
+    <div id="quiz-actions" style="margin-top:16px"></div>
+  </section>
+
+  <!-- 4 · is it for me -->
+  <section class="screen" id="s-me">
+    <div class="top"><span class="mark">steer</span><span>step 3 of 3 · optional</span></div>
+    <h2 style="margin-top:18px">Is it <em>for me?</em></h2>
+    <p class="small" style="margin:8px 0 18px">Indian bodies have their own cut-offs. Nothing is stored or sent.</p>
+    <div class="stack">
+      <label class="f">Height (cm)<input id="h" type="number" inputmode="decimal" min="120" max="220" placeholder="e.g. 165"></label>
+      <label class="f">Weight (kg)<input id="w" type="number" inputmode="decimal" min="30" max="250" placeholder="e.g. 72"></label>
+      <label class="f">Waist (cm), optional<input id="waist" type="number" inputmode="decimal" min="50" max="200" placeholder="at the navel"></label>
+      <label class="f">I am<select id="sex"><option value="">prefer not to say</option><option value="f">a woman</option><option value="m">a man</option></select></label>
+    </div>
+    <div id="bmi-out" hidden>
+      <div class="meter"><i id="needle"></i></div>
+      <div class="scale"><span>18.5</span><span>23</span><span>25</span><span>30+</span></div>
+      <p class="lead" id="bmi-text"></p>
+      <a class="src" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/19582986/">Source: Misra et al., J Assoc Physicians India 2009 (Asian Indian cut-offs)</a>
+    </div>
+    <div class="grow"></div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn ghost" id="me-skip">Skip</button>
+      <button class="btn primary" id="me-go">Check</button>
+    </div>
+  </section>
+
+  <!-- 5 · your readout (Wrapped-style stories) -->
+  <section class="screen dark" id="s-wrap">
+    <div class="story" id="story"></div>
+    <div class="top"><span class="mark">steer</span><span>your readout</span></div>
+    <div class="grow center" id="wrap-body"></div>
+    <div class="tap" id="wrap-tap" aria-hidden="true"></div>
+    <p class="fine">Tap to continue</p>
+  </section>
+
+  <!-- 6 · handoff -->
+  <section class="screen" id="s-next">
+    <div class="top"><span class="mark">steer</span><span>no obligation</span></div>
+    <h2 style="margin-top:18px">Before you start, hear it from <em>a doctor,</em> not a reel.</h2>
+    <p class="lead" id="next-text"></p>
+    <div class="stack" style="margin-top:18px">
+      <a class="btn primary" id="cta" style="text-align:center;text-decoration:none" target="_blank" rel="noopener">See if the programme fits me</a>
+      <button class="btn ghost" id="share">Send this to a friend</button>
+    </div>
+    <p class="fine">Steer starts with tests, then a doctor decides what fits. Medicine is prescribed only when it's clinically right. This quiz is education, not medical advice. If it isn't right for you, they'll say so.</p>
+    <div id="lead-view" hidden>
+      <p class="small" style="margin:16px 0 0">What Steer's team would see with the call request:</p>
+      <div class="lead-json" id="lead-json"></div>
+    </div>
+    <div class="grow"></div>
+    <p class="small" style="text-align:center;margin-top:16px">Lose well. Live well. · steerclub.com</p>
+  </section>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const params = new URLSearchParams(location.search);
+
+// ---------- facts: every answer carries its source ----------
+const DOUBTS = [
+  { id: "diabetes", label: "Is it only for diabetics?" },
+  { id: "muscle", label: "Will I lose muscle?" },
+  { id: "regain", label: "Will the weight come back?" },
+  { id: "safety", label: "Is it safe? What about side effects?" },
+  { id: "me", label: "Is it even for me?" },
+];
+const CARDS = [
+  { doubt: "diabetes", q: "GLP-1 medicines are <em>only</em> for people with diabetes.", truth: "myth",
+    a: "A large trial tested them in adults <b>without</b> diabetes who were living with obesity, alongside diet and activity changes. Whether they suit you is a doctor's call, after tests.",
+    india: "Many people hear about them from a relative with sugar. That's one use, not the only one.",
+    src: "Wilding et al., NEJM 2021 (STEP 1)", url: "https://doi.org/10.1056/NEJMoa2032183" },
+  { doubt: "muscle", q: "When you lose weight on these medicines, <em>some of it can be muscle.</em>", truth: "fact",
+    a: "In one trial's body-scan (DEXA) substudy, close to 4 in every 10 kg of tissue lost was lean mass, not fat. That's why protein and strength training matter.",
+    india: "Dal, paneer, eggs, curd or sprouts at every meal, and two strength sessions a week. A DEXA scan shows muscle, not just kilos.",
+    src: "Wilding et al., STEP 1 DEXA substudy, 2021", url: "https://abcd.care/sites/default/files/site_uploads/Posters/Posters_ABCDOctober2021/Poster_King_366.pdf" },
+  { doubt: "regain", q: "Once you stop, the weight <em>usually stays off.</em>", truth: "myth",
+    a: "When the medicine and the lifestyle support both stopped, people regained about two-thirds of the weight they had lost within a year.",
+    india: "A planned exit, with habits that survive weddings, festivals and office samosas, is the part that decides the long run.",
+    src: "Wilding et al., Diabetes Obes Metab 2022", url: "https://doi.org/10.1111/dom.14725" },
+  { doubt: "safety", q: "Stomach side effects like nausea are <em>common at the start.</em>", truth: "fact",
+    a: "In a large trial, about 74 in 100 people on the medicine had stomach side effects (nausea, loose motions, constipation) vs 48 in 100 on placebo, mostly mild to moderate and short-lived.",
+    india: "That's why screening and blood tests come first, and a doctor adjusts the plan instead of a reel.",
+    src: "Wilding et al., NEJM 2021 (STEP 1)", url: "https://doi.org/10.1056/NEJMoa2032183" },
+  { doubt: "me", q: "Healthy-weight cut-offs are <em>the same</em> for Indians as for Westerners.", truth: "myth",
+    a: "For Asian Indians, overweight starts at a BMI of 23 and obesity at 25 (not 25 and 30), and a waist of 90 cm or more for men, 80 cm or more for women, also counts.",
+    india: "So someone who looks 'just a bit healthy' at a family function may already be at higher metabolic risk.",
+    src: "Misra et al., J Assoc Physicians India 2009", url: "https://pubmed.ncbi.nlm.nih.gov/19582986/" },
+];
+const MATTERS = {
+  diabetes: "Who it's for is a medical decision: tests first, then a doctor who looks at your whole picture.",
+  muscle: "Protecting muscle: protein at every meal, strength training, and a scan that tracks muscle, not just weight.",
+  regain: "Keeping it off: a planned exit with habits built for your life, not a crash diet.",
+  safety: "Safety: screening and blood tests before any medicine, and a doctor watching side effects with you.",
+  me: "Your numbers: Indian cut-offs, your waist, and your labs, read by a doctor.",
+};
+
+// ---------- state + light analytics (kept on the device; a real ad would send these to the pixel) ----------
+const S = { guess: null, doubts: [], answers: [], bmi: null, started: Date.now() };
+const events = [];
+const track = (name, data = {}) => events.push({ t: Math.round((Date.now() - S.started) / 100) / 10, name, ...data });
+const buzz = (ms = 12) => { try { navigator.vibrate && navigator.vibrate(ms); } catch (e) {} };
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach((s) => s.classList.toggle("on", s.id === "s-" + id));
+  const on = $("#s-" + id); if (on) on.scrollTop = 0;
+  track("screen", { id });
+}
+// The visible screen is the scroll area; a wheel or trackpad anywhere on the page scrolls it,
+// including over the empty sides on a laptop.
+window.addEventListener("wheel", (e) => {
+  const on = document.querySelector(".screen.on");
+  if (on && !on.contains(e.target)) { on.scrollTop += e.deltaY; }
+}, { passive: true });
+
+// 0 -> 1: the hook
+document.querySelectorAll("[data-guess]").forEach((b) => b.addEventListener("click", () => {
+  S.guess = b.dataset.guess; buzz(); track("hook_tap", { guess: S.guess });
+  $("#reveal-note").textContent = S.guess === "biology" ? "you're right." : "most people say that.";
+  $("#reveal-tag").textContent = S.guess === "biology" ? "1 of 1 so far" : "0 of 1 so far";
+  show("reveal");
+}));
+document.querySelectorAll("[data-go]").forEach((b) => b.addEventListener("click", () => show(b.dataset.go)));
+
+// 2: pick doubts (they become the warm lead)
+$("#doubt-list").innerHTML = DOUBTS.map((d) =>
+  `<button class="chip" aria-pressed="false" data-doubt="${d.id}"><span class="box">✓</span>${d.label}</button>`).join("");
+$("#doubt-list").addEventListener("click", (e) => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") === "true" ? "false" : "true"); buzz(8);
+});
+let order = [];
+$("#doubts-go").addEventListener("click", () => {
+  S.doubts = [...document.querySelectorAll('.chip[aria-pressed="true"]')].map((c) => c.dataset.doubt);
+  track("doubts", { picked: S.doubts });
+  order = [...CARDS].sort((a, b) => (S.doubts.includes(b.doubt) - S.doubts.includes(a.doubt)));
+  S.answers = []; renderCard(0); show("quiz");
+});
+
+// 3: myth or fact
+function renderCard(i) {
+  const c = order[i];
+  $("#dots").innerHTML = order.map((_, k) => `<span class="${k < i ? "done" : ""}"></span>`).join("");
+  $("#card").className = "card pop";
+  $("#card").innerHTML = `<span class="tag">${S.doubts.includes(c.doubt) ? "YOUR DOUBT" : "MYTH OR FACT?"}</span><div class="q">${c.q}</div>`;
+  $("#quiz-actions").innerHTML = `<div class="row"><button class="btn ghost" data-a="myth">Myth</button><button class="btn primary" data-a="fact">Fact</button></div>`;
+  $("#quiz-actions").onclick = (e) => {
+    const b = e.target.closest("[data-a]"); if (!b) return;
+    const right = b.dataset.a === c.truth; S.answers.push({ doubt: c.doubt, right }); buzz(right ? 10 : [10, 40, 10]);
+    track("answer", { doubt: c.doubt, right });
+    $("#card").className = "card pop";
+    $("#card").innerHTML = `<span class="tag">${c.truth === "myth" ? "MYTH" : "FACT"}</span>
+      <div class="verdict ${right ? "ok" : ""}">${c.truth === "myth" ? "Myth." : "Fact."}</div>
+      <div class="ans">${c.a}</div><div class="india">${c.india}</div>
+      <a class="src" target="_blank" rel="noopener" href="${c.url}">Source: ${c.src}</a>`;
+    $("#quiz-actions").innerHTML = `<button class="btn primary" id="next-card">${i < order.length - 1 ? "Next" : "Almost done"}</button>`;
+    $("#next-card").onclick = () => i < order.length - 1 ? renderCard(i + 1) : show("me");
+  };
+}
+
+// 4: Indian BMI cut-offs (screening, never a diagnosis)
+function bmiBand(b) {
+  if (b < 18.5) return ["below the healthy range", "A doctor can check why; weight loss isn't the goal here."];
+  if (b < 23) return ["in the healthy range for Indians", "Habits still matter: protein, sleep, movement."];
+  if (b < 25) return ["overweight by Indian cut-offs", "Worth a chat with a doctor about your labs and waist, before anything else."];
+  return ["in the obesity range by Indian cut-offs", "Worth a chat with a doctor. Tests first; the plan comes after."];
+}
+$("#me-go").addEventListener("click", () => {
+  const h = parseFloat($("#h").value) / 100, w = parseFloat($("#w").value);
+  if (!(h > 1.2 && h < 2.2 && w > 30 && w < 250)) { $("#h").focus(); return; }
+  if (S.bmi) { startWrap(); return; }
+  const b = Math.round(w / (h * h) * 10) / 10, [band, tip] = bmiBand(b);
+  const waist = parseFloat($("#waist").value), sex = $("#sex").value;
+  const waistNote = waist && sex ? (waist >= (sex === "m" ? 90 : 80) ? ` Your waist of ${waist} cm is above the Indian cut-off for ${sex === "m" ? "men (90)" : "women (80)"}.` : ` Your waist is under the Indian cut-off.`) : "";
+  S.bmi = { value: b, band };
+  $("#bmi-out").hidden = false;
+  const pct = Math.max(0, Math.min(100, (b - 15) / (35 - 15) * 100));
+  requestAnimationFrame(() => { $("#needle").style.left = `calc(${pct}% - 2px)`; });
+  $("#bmi-text").innerHTML = `BMI <b>${b}</b>: ${band}.${waistNote} ${tip}`;
+  $("#me-go").textContent = "See my readout"; track("bmi", { band });
+});
+$("#me-skip").addEventListener("click", () => { track("bmi_skip"); startWrap(); });
+
+// 5: Wrapped-style readout
+let slides = [], si = 0, timer = null;
+function startWrap() {
+  const score = S.answers.filter((a) => a.right).length;
+  const focus = (S.doubts.length ? S.doubts : ["regain", "muscle"]).slice(0, 2);
+  slides = [
+    `<span class="note">your score</span><div class="big">${score}/${S.answers.length}</div><p class="lead">${score >= 4 ? "Sharper than most people we talk to." : "Most people miss a few. These are the questions doctors hear every day."}</p>`,
+    `<span class="note">what matters most for someone like you</span>${focus.map((d) => `<p class="lead" style="font-size:19px;color:var(--cream)">${MATTERS[d]}</p>`).join("")}`,
+    S.bmi ? `<span class="note">your numbers, Indian cut-offs</span><div class="big" style="font-size:72px">${S.bmi.value}</div><p class="lead">BMI: ${S.bmi.band}.</p>`
+          : `<span class="note">one more thing</span><h2>It was never just <em>willpower.</em></h2><p class="lead">Your body defends its weight. Working with that biology, safely, is a doctor's job.</p>`,
+    `<div class="share-card"><span class="small">I tried it</span><h2>It's biology, <em>not willpower.</em></h2><p style="margin:8px 0 0">I scored ${score}/${S.answers.length} on GLP-1 myths. Can you beat it?</p><p class="small" style="margin-top:12px">steer · steerclub.com</p></div>`,
+  ];
+  si = 0; show("wrap"); renderSlide();
+}
+function renderSlide() {
+  $("#story").innerHTML = slides.map((_, k) => `<span class="${k < si ? "done" : k === si ? "now" : ""}"><b></b></span>`).join("");
+  $("#wrap-body").innerHTML = `<div class="pop">${slides[si]}</div>`;
+  clearTimeout(timer); timer = setTimeout(nextSlide, 5500);
+}
+function nextSlide() { if (si < slides.length - 1) { si++; renderSlide(); } else { clearTimeout(timer); handoff(); } }
+$("#wrap-tap").addEventListener("click", () => { buzz(6); nextSlide(); });
+
+// 6: handoff, a warm lead instead of a cold one
+function handoff() {
+  const labels = Object.fromEntries(DOUBTS.map((d) => [d.id, d.label.replace("?", "").toLowerCase()]));
+  const asked = S.doubts.map((d) => labels[d]);
+  $("#next-text").textContent = asked.length
+    ? `A Steer doctor will already know what you wanted to ask: ${asked.join("; ")}. Your first call starts with your health, not the basics.`
+    : "A Steer doctor looks at your tests and history, and tells you honestly whether the programme fits.";
+  const lead = { source: "playable_quiz", hook_guess: S.guess, doubts: S.doubts,
+                 myths_missed: S.answers.filter((a) => !a.right).map((a) => a.doubt),
+                 bmi_band: S.bmi ? S.bmi.band : null, seconds_engaged: Math.round((Date.now() - S.started) / 1000) };
+  const q = new URLSearchParams({ utm_source: params.get("utm_source") || "meta", utm_medium: "playable", utm_campaign: "willpower_or_biology", doubts: S.doubts.join(",") });
+  $("#cta").href = "https://steerclub.com/?" + q.toString();
+  $("#cta").onclick = () => track("cta_tap", lead);
+  $("#lead-json").textContent = JSON.stringify(lead, null, 2);
+  $("#lead-view").hidden = !params.has("team");
+  show("next");
+}
+$("#share").addEventListener("click", async () => {
+  const score = S.answers.filter((a) => a.right).length;
+  const text = `It's biology, not willpower. I scored ${score}/${S.answers.length} on GLP-1 myths. Try it: ${location.origin + location.pathname}`;
+  track("share");
+  try { if (navigator.share) { await navigator.share({ text }); return; } } catch (e) { return; }
+  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank", "noopener");
+});
+</script>
+</body>
+</html>
