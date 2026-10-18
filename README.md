@@ -3,13 +3,19 @@
 A 60-second playable quiz for Instagram and Facebook, built for the Steer Club Hackathon (Problem Statement 1: "The ad people want to tap").
 
 **Play it:** https://steer-willpower-or-biology-1037019152152.asia-south1.run.app
-**What Steer's team would receive with the call request:** add `?team=1` to the link.
+**What Steer's team would receive with the call request:** add `?team=1` to the link. **Hindi:** tap हिंदी in the corner, or add `?lang=hi`.
 
 ## Trigger, value, next step
 
 - **Trigger (first 3 seconds):** "Why does your hunger come back at 4pm?" One tap: *Willpower* or *Biology*.
 - **Value (about 60 seconds):** the five doubts people have about GLP-1 medicines (only for diabetics? muscle loss? will it come back? side effects? is it for me?) cleared as myth-or-fact cards, starting with the ones the person picked, each with an Indian-life line and a source; a BMI and waist check on Indian cut-offs; a short "your readout" story with what matters most for someone like them.
-- **Next step:** "See if the programme fits me", where the Steer doctor already knows which doubts the person had, so the first call starts with their health, not the basics.
+- **Next step:** "See if the programme fits me", where the Steer doctor already knows which doubts the person had, so the first call starts with their health, not the basics. The person also leaves with **3 questions to take to their doctor**, built from their doubts, which they can send to themselves on WhatsApp or copy.
+
+## What makes it different
+
+- **English and Hindi.** Every screen, card, readout and question is in both; the facts and numbers are identical.
+- **It looks like a trusted doctor's note**, as Steer's brief asks: answers sit on a ruled notepad with a margin line, the Indian-life line is in handwriting (Kalam, from the Indian Type Foundry, which also writes Devanagari), and every source is a stamp you can tap.
+- **Typography:** Fraunces for headlines (an editorial serif with a warm italic), Manrope for body text, Tiro Devanagari Hindi and Mukta for Hindi, all in Steer's palette.
 
 ## How it works
 
@@ -21,7 +27,7 @@ One HTML file (about 27 KB, no login, no build step, no tracking), so it can be 
 4. Five myth-or-fact cards: tap, see the answer, the source and an Indian-life line.
 5. Optional "Is it for me?": BMI and waist on Asian Indian cut-offs, computed on the phone, nothing stored or sent. Worded as "worth a chat with a doctor", never a diagnosis or a promise.
 6. Readout: Wrapped-style story cards (score, what matters for someone like you, numbers or "it was never just willpower") and a share card ("It's biology, not willpower. I scored 4/5. Can you beat it?") for WhatsApp or any app.
-7. Handoff: "See if the programme fits me" opens steerclub.com with UTM tags and the person's doubts, and the page shows what the lead looks like for Steer's team: hook answer, doubts picked, myths missed, BMI band, seconds engaged.
+7. Handoff + doctor questions: "See if the programme fits me" opens steerclub.com with UTM tags and the person's doubts, and the page shows what the lead looks like for Steer's team: hook answer, doubts picked, myths missed, BMI band, seconds engaged.
 
 ## Every claim and its source
 
