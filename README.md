@@ -44,4 +44,4 @@ No drug or brand is named in the game, there are no before/after images and no w
 
 ## Built with
 
-Solo build by Ankith M (Steer Club Hackathon, 17-18 Oct 2026). Plain HTML, CSS and JavaScript; fonts from Google Fonts (Instrument Serif, Inter, Caveat). Claude (Anthropic) was used as an AI coding assistant to write the code and to find and check the sources; every claim was checked against the papers above.
+Solo build by Ankith M (Steer Club Hackathon, 17-18 Oct 2026). Plain HTML, CSS and JavaScript; fonts from Google Fonts (Fraunces, Manrope, Kalam, Tiro Devanagari Hindi, Mukta). Claude (Anthropic) was used as an AI coding assistant to write the code and to find and check the sources; every claim was checked against the papers above.
