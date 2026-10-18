@@ -5,6 +5,22 @@ A 60-second playable quiz for Instagram and Facebook, built for the Steer Club H
 **Play it:** https://steer-willpower-or-biology-1037019152152.asia-south1.run.app
 **What Steer's team would receive with the call request:** add `?team=1` to the link. **Hindi:** tap हिंदी in the corner, or add `?lang=hi`.
 
+## At a glance
+
+- **Target device / browser:** phones first (designed at 390 px wide; tested in mobile Chrome/Edge emulation at 390x844 and on a desktop browser, where it shows in a phone frame). Works in any modern browser: Chrome, Safari, Edge, Firefox, Samsung Internet, and Instagram/Facebook in-app browsers. No login, no install, no build step.
+- **Completion status:** complete and live. All 7 screens work end to end in English and Hindi; every claim has a tappable source; nothing the person types is stored or sent. Not done (optional per the rules): uploading it as a real Meta playable ad, and wiring the lead to a real CRM (the lead JSON is shown with `?team=1`).
+- **Files:** `index.html` is the whole playable (one file, about 50 KB including both languages, under Meta's 2 MB playable limit). `docs/` has the walkthrough screenshots below.
+
+## Walkthrough
+
+| 1. Hook | 2. Reveal | 3. Pick your doubts | 4. Myth or fact? | 5. The answer + source |
+|---|---|---|---|---|
+| ![](docs/1-hook.png) | ![](docs/2-reveal.png) | ![](docs/3-doubts.png) | ![](docs/4-card-question.png) | ![](docs/5-card-answer.png) |
+
+| 6. Indian cut-offs | 7. Readout | 8. Handoff | 9. Questions for the doctor | 10. Hindi |
+|---|---|---|---|---|
+| ![](docs/6-indian-cutoffs.png) | ![](docs/7-readout.png) | ![](docs/8-handoff.png) | ![](docs/9-doctor-questions.png) | ![](docs/10-hindi.png) |
+
 ## Trigger, value, next step
 
 - **Trigger (first 3 seconds):** "Why does your hunger come back at 4pm?" One tap: *Willpower* or *Biology*.
@@ -19,7 +35,7 @@ A 60-second playable quiz for Instagram and Facebook, built for the Steer Club H
 
 ## How it works
 
-One HTML file (about 27 KB, no login, no build step, no tracking), so it can be uploaded as a Meta playable ad (HTML5, under 2 MB) and used unchanged as an entry point on steerclub.com.
+One HTML file (about 50 KB with both languages, no login, no build step, no tracking), so it can be uploaded as a Meta playable ad (HTML5, under 2 MB) and used unchanged as an entry point on steerclub.com.
 
 1. Hook: a 4pm question and two big tap targets.
 2. Reveal: "It's biology", with the hunger-hormone finding and its source.
